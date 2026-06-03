@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanpur Chaat Corner | Authentic Indian Street Food in Vellore</title>
+    <meta name="description" content="Kanpur Chaat Corner — The authentic taste of Indian street food in Vellore. Pani Puri, Dahi Puri, Bhel Puri, Samosa Chaat & more. Located at CSI Complex, Arni Road, opposite CMC Eye Hospital.">
+    <meta name="keywords" content="Kanpur Chaat Corner, chaat, pani puri, street food, Vellore, Indian food, dahi puri, bhel puri, samosa chaat, pav bhaji">
+    <meta name="author" content="Mohammed Asif">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Kanpur Chaat Corner | Authentic Indian Street Food">
+    <meta property="og:description" content="Experience the authentic taste of Kanpur's street food right here in Vellore. 25+ varieties of chaat made fresh daily.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_IN">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Kanpur Chaat Corner | Authentic Indian Street Food">
+    <meta name="twitter:description" content="Experience the authentic taste of Kanpur's street food right here in Vellore.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+    <!-- AOS CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Three.js Import Map -->
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+            "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+        }
+    }
+    </script>
+</head>
+<body>
+
+    <!-- ========== LOADING SCREEN ========== -->
+    <div id="loader">
+        <div class="loader-particles" id="loaderParticles"></div>
+        <div class="loader-content">
+            <div class="loader-logo">
+                <span class="loader-letter" style="--i:0">K</span>
+                <span class="loader-letter" style="--i:1">A</span>
+                <span class="loader-letter" style="--i:2">N</span>
+                <span class="loader-letter" style="--i:3">P</span>
+                <span class="loader-letter" style="--i:4">U</span>
+                <span class="loader-letter" style="--i:5">R</span>
+                <span class="loader-space">&nbsp;</span>
+                <span class="loader-letter" style="--i:6">C</span>
+                <span class="loader-letter" style="--i:7">H</span>
+                <span class="loader-letter" style="--i:8">A</span>
+                <span class="loader-letter" style="--i:9">A</span>
+                <span class="loader-letter" style="--i:10">T</span>
+                <span class="loader-space">&nbsp;</span>
+                <span class="loader-letter" style="--i:11">C</span>
+                <span class="loader-letter" style="--i:12">O</span>
+                <span class="loader-letter" style="--i:13">R</span>
+                <span class="loader-letter" style="--i:14">N</span>
+                <span class="loader-letter" style="--i:15">E</span>
+                <span class="loader-letter" style="--i:16">R</span>
+            </div>
+            <div class="loader-line"></div>
+            <p class="loader-tagline">The Authentic Taste of Indian Street Food</p>
+        </div>
+        <div class="loader-progress">
+            <div class="loader-progress-bar" id="loaderBar"></div>
+        </div>
+    </div>
+
+    <!-- ========== MOUSE FOLLOWER ========== -->
+    <div id="mouseFollower"></div>
+
+    <!-- ========== SCROLL PROGRESS ========== -->
+    <div id="scrollProgress"></div>
+
+    <!-- ========== GRAIN OVERLAY ========== -->
+    <div class="grain-overlay"></div>
+
+    <!-- ========== NAVBAR ========== -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">
+                <span class="logo-icon"><i class="fas fa-fire-flame-curved"></i></span>
+                <span class="logo-text">KCC</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#hero" class="nav-link active">Home</a></li>
+                <li><a href="#bestsellers" class="nav-link">Menu</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#gallery" class="nav-link">Gallery</a></li>
+                <li><a href="#reviews" class="nav-link">Reviews</a></li>
+                <li><a href="#location" class="nav-link">Location</a></li>
+            </ul>
+            <a href="tel:+919876543210" class="nav-cta">
+                <i class="fas fa-phone"></i> Order Now
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ========== HERO SECTION ========== -->
+    <section id="hero">
+        <canvas id="heroCanvas"></canvas>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-star"></i> Vellore's Favorite Chaat Destination
+            </div>
+            <h1 class="hero-title">
+                <span class="title-line">KANPUR</span>
+                <span class="title-line title-accent">CHAAT CORNER</span>
+            </h1>
+            <p class="hero-subtitle">The Authentic Taste of Indian Street Food</p>
+            <div class="hero-buttons">
+                <a href="#bestsellers" class="btn btn-outline">
+                    <i class="fas fa-utensils"></i> View Menu
+                </a>
+                <a href="tel:+919876543210" class="btn btn-primary">
+                    <i class="fas fa-phone"></i> Order Now
+                </a>
+            </div>
+            <div class="hero-scroll">
+                <div class="scroll-indicator">
+                    <div class="scroll-dot"></div>
+                </div>
+                <span>Scroll to explore</span>
+            </div>
+        </div>
+        <div class="hero-floating-ingredients" id="heroFloats"></div>
+    </section>
+
+    <!-- ========== BEST SELLERS ========== -->
+    <section id="bestsellers" class="section-light">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">Our Signature Dishes</span>
+                <h2 class="section-title">Best Sellers</h2>
+                <p class="section-desc">Handcrafted with love, spiced to perfection — these are the flavors that keep Vellore coming back for more.</p>
+            </div>
+            <div class="bestsellers-grid">
+                <div class="food-card" data-tilt data-aos="fade-up" data-aos-delay="0">
+                    <div class="food-card-img">
+                        <img src="https://picsum.photos/seed/panipuri1/400/300" alt="Pani Puri" loading="lazy">
+                        <div class="food-card-overlay">
+                            <span class="food-price">&#8377;40</span>
+                        </div>
+                    </div>
+                    <div class="food-card-body">
+                        <h3>Pani Puri</h3>
+                        <p>Crispy puris filled with tangy mint water, tamarind chutney, and spiced potatoes.</p>
+                        <span class="food-tag"><i class="fas fa-fire"></i> Most Popular</span>
+                    </div>
+                </div>
+                <div class="food-card" data-tilt data-aos="fade-up" data-aos-delay="100">
+                    <div class="food-card-img">
+                        <img src="https://picsum.photos/seed/dahipuri2/400/300" alt="Dahi Puri" loading="lazy">
+                        <div class="food-card-overlay">
+                            <span class="food-price">&#8377;50</span>
+                        </div>
+                    </div>
+                    <div class="food-card-body">
+                        <h3>Dahi Puri</h3>
+                        <p>Soft puris topped with creamy yogurt, sweet chutneys, and fresh herbs.</p>
+                        <span class="food-tag"><i class="fas fa-heart"></i> Chef's Pick</span>
+                    </div>
+                </div>
+                <div class="food-card" data-tilt data-aos="fade-up" data-aos-delay="200">
+                    <div class="food-card-img">
+                        <img src="https://picsum.photos/seed/bhelpuri3/400/300" alt="Bhel Puri" loading="lazy">
+                        <div class="food-card-overlay">
+                            <span class="food-price">&#8377;40</span>
+                        </div>
+                    </div>
+                    <div class="food-card-body">
+                        <h3>Bhel Puri</h3>
+                        <p>Puffed rice mixed with vegetables, tamarind sauce, and crunchy sev.</p>
+                        <span class="food-tag"><i class="fas fa-leaf"></i> Classic</span>
+                    </div>
+                </div>
+                <div class="food-card" data-tilt data-aos="fade-up" data-aos-delay="300">
+                    <div class="food-card-img">
+                        <img src="https://picsum.photos/seed/samosa4/400/300" alt="Samosa Chaat" loading="lazy">
+                        <div class="food-card-overlay">
+                            <span class="food-price">&#8377;60</span>
+                        </div>
+                    </div>
+                    <div class="food-card-body">
+                        <h3>Samosa Chaat</h3>
+                        <p>Crushed samosas layered with chole, chutneys, and creamy yogurt.</p>
+                        <span class="food-tag"><i class="fas fa-bolt"></i> Must Try</span>
+                    </div>
+                </div>
+                <div class="food-card" data-tilt data-aos="fade-up" data-aos-delay="400">
+                    <div class="food-card-img">
+                        <img src="https://picsum.photos/seed/pavbhaji5/400/300" alt="Pav Bhaji" loading="lazy">
+                        <div class="food-card-overlay">
+                            <span class="food-price">&#8377;70</span>
+                        </div>
+                    </div>
+                    <div class="food-card-body">
+                        <h3>Pav Bhaji</h3>
+                        <p>Buttery pav served with spiced mashed vegetable curry — pure comfort food.</p>
+                        <span class="food-tag"><i class="fas fa-crown"></i> Premium</span>
+                    </div>
+                </div>
+                <div class="food-card" data-tilt data-aos="fade-up" data-aos-delay="500">
+                    <div class="food-card-img">
+                        <img src="https://picsum.photos/seed/specialchaat6/400/300" alt="Special Chaat" loading="lazy">
+                        <div class="food-card-overlay">
+                            <span class="food-price">&#8377;80</span>
+                        </div>
+                    </div>
+                    <div class="food-card-body">
+                        <h3>Special Chaat</h3>
+                        <p>Our signature chaat with a secret blend of 15 hand-ground spices.</p>
+                        <span class="food-tag"><i class="fas fa-gem"></i> Exclusive</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== WHY PEOPLE LOVE US ========== -->
+    <section id="about" class="section-dark">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">Why Choose Us</span>
+                <h2 class="section-title">Why People Love Us</h2>
+                <p class="section-desc">Four pillars that define every plate we serve.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card glass-card" data-aos="fade-up" data-aos-delay="0">
+                    <div class="feature-icon">
+                        <i class="fas fa-pepper-hot"></i>
+                    </div>
+                    <h3>Authentic Taste</h3>
+                    <p>Recipes passed down through generations from the legendary streets of Kanpur.</p>
+                </div>
+                <div class="feature-card glass-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3>Fresh Ingredients</h3>
+                    <p>Handpicked vegetables and spices prepared fresh every single day, no shortcuts.</p>
+                </div>
+                <div class="feature-card glass-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Fast Service</h3>
+                    <p>Your chaat prepared hot and served within minutes of ordering. No long waits.</p>
+                </div>
+                <div class="feature-card glass-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-icon">
+                        <i class="fas fa-tags"></i>
+                    </div>
+                    <h3>Affordable Prices</h3>
+                    <p>Premium street food experience at prices that won't break the bank.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== ANIMATED STATS ========== -->
+    <section id="stats" class="section-stats">
+        <div class="stats-bg-pattern"></div>
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item" data-aos="zoom-in" data-aos-delay="0">
+                    <div class="stat-number" data-target="766">0</div>
+                    <div class="stat-suffix">+</div>
+                    <div class="stat-label">Customer Reviews</div>
+                </div>
+                <div class="stat-divider" data-aos="fade-in"></div>
+                <div class="stat-item" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="stat-number" data-target="10000">0</div>
+                    <div class="stat-suffix">+</div>
+                    <div class="stat-label">Happy Customers</div>
+                </div>
+                <div class="stat-divider" data-aos="fade-in"></div>
+                <div class="stat-item" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="stat-number" data-target="25">0</div>
+                    <div class="stat-suffix">+</div>
+                    <div class="stat-label">Street Food Varieties</div>
+                </div>
+                <div class="stat-divider" data-aos="fade-in"></div>
+                <div class="stat-item" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="stat-number" data-target="4.0" data-decimal="true">0</div>
+                    <div class="stat-suffix"><i class="fas fa-star" style="color:var(--gold);font-size:0.7em"></i></div>
+                    <div class="stat-label">Google Rating</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SPECIAL OFFERS ========== -->
+    <section id="offers" class="section-dark">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">Limited Time Only</span>
+                <h2 class="section-title">Special Offers</h2>
+            </div>
+            <div class="offers-grid">
+                <div class="offer-card glass-card" data-aos="fade-right">
+                    <div class="offer-badge">SAVE &#8377;31</div>
+                    <div class="offer-content">
+                        <h3>Festival Combo</h3>
+                        <p>Pani Puri + Dahi Puri + Bhel Puri</p>
+                        <div class="offer-prices">
+                            <span class="offer-old">&#8377;130</span>
+                            <span class="offer-new">&#8377;99</span>
+                        </div>
+                        <a href="tel:+919876543210" class="btn btn-primary btn-sm">Grab Now</a>
+                    </div>
+                </div>
+                <div class="offer-card glass-card" data-aos="fade-left">
+                    <div class="offer-badge">SAVE &#8377;81</div>
+                    <div class="offer-content">
+                        <h3>Family Pack</h3>
+                        <p>Any 5 Chaat Items of Your Choice</p>
+                        <div class="offer-prices">
+                            <span class="offer-old">&#8377;380</span>
+                            <span class="offer-new">&#8377;299</span>
+                        </div>
+                        <a href="tel:+919876543210" class="btn btn-primary btn-sm">Grab Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="countdown-section" data-aos="fade-up">
+                <p class="countdown-label"><i class="fas fa-clock"></i> Offers End In</p>
+                <div class="countdown-timer" id="countdown">
+                    <div class="countdown-item">
+                        <span class="countdown-num" id="cdDays">00</span>
+                        <span class="countdown-unit">Days</span>
+                    </div>
+                    <div class="countdown-sep">:</div>
+                    <div class="countdown-item">
+                        <span class="countdown-num" id="cdHours">00</span>
+                        <span class="countdown-unit">Hours</span>
+                    </div>
+                    <div class="countdown-sep">:</div>
+                    <div class="countdown-item">
+                        <span class="countdown-num" id="cdMins">00</span>
+                        <span class="countdown-unit">Mins</span>
+                    </div>
+                    <div class="countdown-sep">:</div>
+                    <div class="countdown-item">
+                        <span class="countdown-num" id="cdSecs">00</span>
+                        <span class="countdown-unit">Secs</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOD GALLERY ========== -->
+    <section id="gallery" class="section-light">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">Visual Feast</span>
+                <h2 class="section-title">Food Gallery</h2>
+                <p class="section-desc">A glimpse into the vibrant world of Kanpur Chaat Corner.</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item gallery-tall" data-aos="fade-up" data-aos-delay="0">
+                    <img src="https://picsum.photos/seed/chaatgallery1/500/700" alt="Chaat platter" loading="lazy">
+                    <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+                </div>
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="50">
+                    <img src="https://picsum.photos/seed/chaatgallery2/500/400" alt="Pani puri close-up" loading="lazy">
+                    <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+                </div>
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://picsum.photos/seed/chaatgallery3/500/400" alt="Spices and chutneys" loading="lazy">
+                    <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+                </div>
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="150">
+                    <img src="https://picsum.photos/seed/chaatgallery4/500/400" alt="Bhel puri preparation" loading="lazy">
+                    <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+                </div>
+                <div class="gallery-item gallery-tall" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://picsum.photos/seed/chaatgallery5/500/700" alt="Samosa chaat bowl" loading="lazy">
+                    <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+                </div>
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="250">
+                    <img src="https://picsum.photos/seed/chaatgallery6/500/400" alt="Fresh ingredients" loading="lazy">
+                    <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+                </div>
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="300">
+                    <img src="https://picsum.photos/seed/chaatgallery7/500/400" alt="Pav bhaji close-up" loading="lazy">
+                    <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+                </div>
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="350">
+                    <img src="https://picsum.photos/seed/chaatgallery8/500/400" alt="Dahi puri plate" loading="lazy">
+                    <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== LIGHTBOX ========== -->
+    <div id="lightbox" class="lightbox">
+        <button class="lightbox-close" aria-label="Close lightbox"><i class="fas fa-times"></i></button>
+        <img id="lightboxImg" src="" alt="Gallery image">
+    </div>
+
+    <!-- ========== TESTIMONIALS ========== -->
+    <section id="reviews" class="section-dark">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">What People Say</span>
+                <h2 class="section-title">Customer Reviews</h2>
+            </div>
+            <div class="swiper testimonial-swiper" data-aos="fade-up" data-aos-delay="100">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="review-card glass-card">
+                            <div class="review-stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p class="review-text">"Best pani puri in Vellore! The taste reminds me of the streets of Kanpur. Absolutely authentic and perfectly spiced."</p>
+                            <div class="review-author">
+                                <div class="review-avatar">PS</div>
+                                <div>
+                                    <strong>Priya Sharma</strong>
+                                    <span>Regular Customer</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="review-card glass-card">
+                            <div class="review-stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p class="review-text">"We drive 30 minutes just to eat here. The samosa chaat is incredible — crispy, tangy, and absolutely addictive. Must visit!"</p>
+                            <div class="review-author">
+                                <div class="review-avatar">RM</div>
+                                <div>
+                                    <strong>Rahul Menon</strong>
+                                    <span>Food Enthusiast</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="review-card glass-card">
+                            <div class="review-stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <p class="review-text">"Clean, hygienic, and the chaat is out of this world. My family's weekend go-to place. Kids love the dahi puri!"</p>
+                            <div class="review-author">
+                                <div class="review-avatar">DK</div>
+                                <div>
+                                    <strong>Deepa Krishnan</strong>
+                                    <span>Family Customer</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="review-card glass-card">
+                            <div class="review-stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p class="review-text">"The special chaat is something you won't find anywhere else. Unique flavors that keep you coming back every week."</p>
+                            <div class="review-author">
+                                <div class="review-avatar">AP</div>
+                                <div>
+                                    <strong>Arjun Patel</strong>
+                                    <span>College Student</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="review-card glass-card">
+                            <div class="review-stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p class="review-text">"Affordable prices with restaurant-quality presentation. Kanpur Chaat Corner is a hidden gem of Vellore!"</p>
+                            <div class="review-author">
+                                <div class="review-avatar">SR</div>
+                                <div>
+                                    <strong>Sneha Reddy</strong>
+                                    <span>Google Reviewer</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="review-card glass-card">
+                            <div class="review-stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <p class="review-text">"Every chaat item is perfectly balanced — sweet, sour, spicy. The chef truly knows their craft. Highly recommended!"</p>
+                            <div class="review-author">
+                                <div class="review-avatar">VS</div>
+                                <div>
+                                    <strong>Vikram Singh</strong>
+                                    <span>Food Blogger</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== LOCATION & MAP ========== -->
+    <section id="location" class="section-light">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">Find Us</span>
+                <h2 class="section-title">Visit Us Today</h2>
+            </div>
+            <div class="location-grid">
+                <div class="location-info glass-card-dark" data-aos="fade-right">
+                    <div class="location-pin">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Kanpur Chaat Corner</h3>
+                    <p class="location-address">
+                        7, 8, 9 CSI Complex,<br>
+                        Arni Road,<br>
+                        Opposite CMC Eye Hospital,<br>
+                        Vellore, Tamil Nadu
+                    </p>
+                    <div class="location-buttons">
+                        <a href="https://www.google.com/maps/search/Kanpur+Chaat+Corner+CSI+Complex+Arni+Road+Vellore" target="_blank" rel="noopener" class="btn btn-outline btn-sm">
+                            <i class="fas fa-directions"></i> Get Directions
+                        </a>
+                        <a href="tel:+919876543210" class="btn btn-primary btn-sm">
+                            <i class="fas fa-phone"></i> Call Now
+                        </a>
+                        <a href="https://wa.me/919876543210?text=Hi%2C%20I%27d%20like%20to%20place%20an%20order" target="_blank" rel="noopener" class="btn btn-whatsapp btn-sm">
+                            <i class="fab fa-whatsapp"></i> WhatsApp Order
+                        </a>
+                    </div>
+                </div>
+                <div class="location-map" data-aos="fade-left">
+                    <iframe
+                        src="https://maps.google.com/maps?q=Kanpur+Chaat+Corner+CSI+Complex+Arni+Road+Opposite+CMC+Eye+Hospital+Vellore+Tamil+Nadu&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                        width="100%" height="100%" style="border:0; border-radius:16px;" allowfullscreen=""
+                        loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Kanpur Chaat Corner Location">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CONTACT SECTION ========== -->
+    <section id="contact" class="section-dark">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">Get In Touch</span>
+                <h2 class="section-title">Contact Us</h2>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-card glass-card" data-aos="fade-up" data-aos-delay="0">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Address</h3>
+                    <p>7,8,9 CSI Complex, Arni Road,<br>Opp. CMC Eye Hospital, Vellore</p>
+                </div>
+                <div class="contact-card glass-card" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-phone-alt"></i>
+                    <h3>Phone</h3>
+                    <p><a href="tel:+919876543210">+91 98765 43210</a></p>
+                </div>
+                <div class="contact-card glass-card" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-clock"></i>
+                    <h3>Hours</h3>
+                    <p>10:00 AM — 10:00 PM<br>Open All Days</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer id="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <i class="fas fa-fire-flame-curved"></i>
+                        <span>Kanpur Chaat Corner</span>
+                    </div>
+                    <p>Bringing the authentic flavors of Kanpur's streets to the heart of Vellore since day one.</p>
+                    <div class="footer-socials">
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://wa.me/919876543210" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#hero">Home</a></li>
+                        <li><a href="#bestsellers">Menu</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#reviews">Reviews</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Popular Items</h4>
+                    <ul>
+                        <li><a href="#bestsellers">Pani Puri</a></li>
+                        <li><a href="#bestsellers">Dahi Puri</a></li>
+                        <li><a href="#bestsellers">Samosa Chaat</a></li>
+                        <li><a href="#bestsellers">Pav Bhaji</a></li>
+                        <li><a href="#bestsellers">Special Chaat</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> CSI Complex, Arni Road</li>
+                        <li><i class="fas fa-phone-alt"></i> +91 98765 43210</li>
+                        <li><i class="fas fa-clock"></i> 10 AM – 10 PM</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Kanpur Chaat Corner. All rights reserved.</p>
+                <p class="footer-credit">Designed & Developed by <a href="https://freelance-asif.vercel.app" target="_blank" rel="noopener">Mohammed Asif</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========== FLOATING ACTION BUTTONS ========== -->
+    <div class="fab-container">
+        <a href="#" id="fabTop" class="fab fab-top" aria-label="Back to top">
+            <i class="fas fa-chevron-up"></i>
+        </a>
+        <a href="tel:+919876543210" class="fab fab-call" aria-label="Call us">
+            <i class="fas fa-phone"></i>
+        </a>
+        <a href="https://wa.me/919876543210?text=Hi%2C%20I%27d%20like%20to%20place%20an%20order" target="_blank" rel="noopener" class="fab fab-whatsapp" aria-label="WhatsApp order">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- ========== EXTERNAL SCRIPTS ========== -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+
+    <!-- Three.js Module -->
+    <script type="module">
+        import * as THREE from 'three';
+
+        /* ---- Hero 3D Scene ---- */
+        const canvas = document.getElementById('heroCanvas');
+        if (!canvas) throw new Error('Hero canvas not found');
+
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 100);
+        camera.position.set(0, 0.8, 5.5);
+
+        const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        renderer.setClearColor(0x000000, 0);
+
+        /* -- Lights -- */
+        const ambientLight = new THREE.AmbientLight(0xffeedd, 0.4);
+        scene.add(ambientLight);
+
+        const light1 = new THREE.PointLight(0xff8c00, 60, 20);
+        light1.position.set(3, 3, 3);
+        scene.add(light1);
+
+        const light2 = new THREE.PointLight(0xd4a017, 40, 20);
+        light2.position.set(-3, -1, 2);
+        scene.add(light2);
+
+        const light3 = new THREE.PointLight(0xb91c1c, 30, 15);
+        light3.position.set(0, -2, -3);
+        scene.add(light3);
+
+        /* -- Pani Puri (Main Bowl) -- */
+        const puriRadius = Math.max(0.001, 1.4);
+        const puriGeo = new THREE.SphereGeometry(puriRadius, 64, 32, 0, Math.PI * 2, Math.PI * 0.35, Math.PI * 0.65);
+        const puriMat = new THREE.MeshPhysicalMaterial({
+            color: 0xd4880a,
+            roughness: 0.55,
+            metalness: 0.05,
+            clearcoat: 0.4,
+            clearcoatRoughness: 0.3
+        });
+        const puri = new THREE.Mesh(puriGeo, puriMat);
+        puri.rotation.x = Math.PI;
+        scene.add(puri);
+
+        /* -- Inner filling (green pani) -- */
+        const fillingGeo = new THREE.SphereGeometry(Math.max(0.001, 0.9), 32, 16, 0, Math.PI * 2, 0, Math.PI * 0.5);
+        const fillingMat = new THREE.MeshPhysicalMaterial({
+            color: 0x2d8a4e,
+            roughness: 0.2,
+            metalness: 0.0,
+            transparent: true,
+            opacity: 0.6,
+            clearcoat: 1.0
+        });
+        const filling = new THREE.Mesh(fillingGeo, fillingMat);
+        filling.position.y = -0.15;
+        filling.rotation.x = Math.PI;
+        puri.add(filling);
+
+        /* -- Floating particles -- */
+        const particles = [];
+        const particleCount = 35;
+        const pGeo = new THREE.IcosahedronGeometry(Math.max(0.001, 1), 1);
+        const colors = [0xff8c00, 0xd4a017, 0xb91c1c, 0xffa733, 0xf0d060];
+
+        for (let i = 0; i < particleCount; i++) {
+            const size = Math.max(0.001, 0.03 + Math.random() * 0.08);
+            const geo = new THREE.IcosahedronGeometry(size, 0);
+            const mat = new THREE.MeshStandardMaterial({
+                color: colors[Math.floor(Math.random() * colors.length)],
+                roughness: 0.3,
+                metalness: 0.4,
+                emissive: colors[Math.floor(Math.random() * colors.length)],
+                emissiveIntensity: 0.3
+            });
+            const mesh = new THREE.Mesh(geo, mat);
+
+            const theta = Math.random() * Math.PI * 2;
+            const phi = Math.acos(2 * Math.random() - 1);
+            const r = 2.5 + Math.random() * 4;
+            mesh.position.set(
+                r * Math.sin(phi) * Math.cos(theta),
+                r * Math.sin(phi) * Math.sin(theta),
+                r * Math.cos(phi)
+            );
+            mesh.userData = {
+                origPos: mesh.position.clone(),
+                speed: 0.3 + Math.random() * 0.7,
+                offset: Math.random() * Math.PI * 2,
+                rotSpeed: (Math.random() - 0.5) * 2
+            };
+            scene.add(mesh);
+            particles.push(mesh);
+        }
+
+        /* -- Mouse tracking -- */
+        let mouseX = 0, mouseY = 0;
+        let targetMouseX = 0, targetMouseY = 0;
+
+        window.addEventListener('mousemove', (e) => {
+            targetMouseX = (e.clientX / window.innerWidth - 0.5) * 2;
+            targetMouseY = (e.clientY / window.innerHeight - 0.5) * 2;
+        });
+
+        /* -- Animation loop -- */
+        const clock = new THREE.Clock();
+
+        function animate() {
+            requestAnimationFrame(animate);
+            const t = clock.getElapsedTime();
+
+            /* Smooth mouse follow */
+            mouseX += (targetMouseX - mouseX) * 0.05;
+            mouseY += (targetMouseY - mouseY) * 0.05;
+
+            /* Rotate puri */
+            puri.rotation.y = t * 0.3 + mouseX * 0.5;
+            puri.rotation.x = Math.PI + mouseY * 0.2;
+            puri.position.y = Math.sin(t * 0.8) * 0.15;
+
+            /* Animate particles */
+            for (const p of particles) {
+                const d = p.userData;
+                p.position.x = d.origPos.x + Math.sin(t * d.speed + d.offset) * 0.3;
+                p.position.y = d.origPos.y + Math.cos(t * d.speed * 0.7 + d.offset) * 0.4;
+                p.rotation.x += d.rotSpeed * 0.01;
+                p.rotation.y += d.rotSpeed * 0.015;
+            }
+
+            /* Camera parallax */
+            camera.position.x = mouseX * 0.4;
+            camera.position.y = 0.8 - mouseY * 0.3;
+            camera.lookAt(0, 0, 0);
+
+            /* Subtle light movement */
+            light1.position.x = 3 + Math.sin(t * 0.5) * 1;
+            light2.position.y = -1 + Math.cos(t * 0.3) * 0.5;
+
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        /* -- Resize handler -- */
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+    </script>
+
+</body>
+</html>
